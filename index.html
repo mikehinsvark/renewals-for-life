@@ -641,7 +641,7 @@ var PILLARS = [
 function ST(t, el) {
   document.querySelectorAll(".nb").forEach(function(b){b.classList.remove("active")});
   el.classList.add("active");
-  ["dream","cities","usa","parks","world","live100","legacy"].forEach(function(id){
+  ["dream","cities","usa","parks","roadtrip","world","live100","legacy"].forEach(function(id){
     var el=document.getElementById("tab-"+id);
     if(el) el.style.display = id===t ? "block" : "none";
   });
