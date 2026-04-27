@@ -328,18 +328,38 @@ a.vl:hover{border-color:var(--tl);background:rgba(0,201,184,.05)}
     .card p { margin: 0; color: var(--muted); line-height: 1.5; }
     .destinations { display: grid; grid-template-columns: repeat(5, 1fr); gap: 14px; margin-top: 30px; }
     .destination {
-      position: relative;
-      min-height: 158px;
-      border-radius: 22px;
-      overflow: hidden;
-      display: flex;
-      align-items: end;
-      border: 1px solid rgba(255,255,255,.15);
-      cursor: pointer;
-      background: rgba(255,255,255,.06);
-      isolation: isolate;
-      transform: translateZ(0);
-    }
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1;
+    border-radius: 12px;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    cursor: pointer;
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.destination:hover {
+    transform: scale(1.05);
+    filter: brightness(1.1);
+}
+
+.destination span {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+    color: white;
+    padding: 20px;
+    font-weight: bold;
+    font-size: 1.1rem;
+    text-align: center;
+    width: 100%;
+}
     .destination::after {
       content: "";
       position: absolute;
