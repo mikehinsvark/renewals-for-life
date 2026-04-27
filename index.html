@@ -171,7 +171,357 @@ a.vl:hover{border-color:var(--tl);background:rgba(0,201,184,.05)}
 /* LIGHTBOX */
 .lb{position:fixed;inset:0;background:rgba(0,0,0,.93);z-index:9999;display:flex;align-items:center;justify-content:center;cursor:zoom-out;padding:20px}
 .lb img{max-width:100%;max-height:90vh;border-radius:8px;box-shadow:0 0 60px rgba(0,201,184,.2)}
-.road-hero{position:relative;min-height:430px;padding:3rem 2rem;display:flex;align-items:center;background:linear-gradient(90deg,rgba(1,8,16,.94),rgba(1,8,16,.55)),url("https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1800&q=80") center/cover no-repeat;border-bottom:1px solid var(--br2)}.road-hero .content{max-width:650px}.route-strip{display:grid;grid-template-columns:repeat(6,1fr);gap:.45rem;margin-top:1rem}.route-stop{background:rgba(0,201,184,.05);border:1px solid var(--br2);border-radius:7px;padding:.7rem;text-align:center;color:var(--mt);font-size:.67rem}.video-card{background:rgba(4,17,30,.92);border:1px solid var(--br);border-radius:10px;overflow:hidden;margin-top:1rem}.video-frame{aspect-ratio:16/9;width:100%;border:0;display:block}.tools{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:.62rem}.tool{padding:.8rem;border-radius:8px;background:rgba(0,201,184,.04);border:1px solid var(--br2);transition:.2s;text-decoration:none;color:inherit;display:block}.tool:hover{border-color:var(--tl);transform:translateY(-2px)}.tool strong{display:block;color:var(--teal);font-size:.75rem;margin-bottom:.18rem}.tool span{font-size:.65rem;color:var(--mt)}</style>
+.road-hero{position:relative;min-height:430px;padding:3rem 2rem;display:flex;align-items:center;background:linear-gradient(90deg,rgba(1,8,16,.94),rgba(1,8,16,.55)),url("https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1800&q=80") center/cover no-repeat;border-bottom:1px solid var(--br2)}.road-hero .content{max-width:650px}.route-strip{display:grid;grid-template-columns:repeat(6,1fr);gap:.45rem;margin-top:1rem}.route-stop{background:rgba(0,201,184,.05);border:1px solid var(--br2);border-radius:7px;padding:.7rem;text-align:center;color:var(--mt);font-size:.67rem}.video-card{background:rgba(4,17,30,.92);border:1px solid var(--br);border-radius:10px;overflow:hidden;margin-top:1rem}.video-frame{aspect-ratio:16/9;width:100%;border:0;display:block}.tools{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:.62rem}.tool{padding:.8rem;border-radius:8px;background:rgba(0,201,184,.04);border:1px solid var(--br2);transition:.2s;text-decoration:none;color:inherit;display:block}.tool:hover{border-color:var(--tl);transform:translateY(-2px)}.tool strong{display:block;color:var(--teal);font-size:.75rem;margin-bottom:.18rem}.tool span{font-size:.65rem;color:var(--mt)}
+    :root {
+      --bg: #030406;
+      --card: rgba(255,255,255,0.07);
+      --line: rgba(255,255,255,0.15);
+      --cyan: #00f5ff;
+      --green: #39ff88;
+      --red: #ffc857;
+      --gold: #ffc857;
+      --text: #f5f7fb;
+      --muted: #aab3c5;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 20% 10%, rgba(0,245,255,.18), transparent 28%),
+        radial-gradient(circle at 80% 15%, rgba(255,200,87,.13), transparent 30%),
+        radial-gradient(circle at 50% 100%, rgba(57,255,136,.12), transparent 30%),
+        var(--bg);
+      overflow-x: hidden;
+      padding: 28px 0;
+    }
+    .page-shell {
+      width: min(1240px, calc(100% - 44px));
+      margin: 0 auto;
+      overflow: hidden;
+      border-radius: 34px;
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(0,0,0,.28);
+      box-shadow: 0 0 70px rgba(0,245,255,.10);
+    }
+    a { color: inherit; text-decoration: none; }
+    .wrap { width: min(1180px, calc(100% - 36px)); margin: 0 auto; }
+    .top-banner {
+      width: 100%;
+      height: 360px;
+      background:
+        linear-gradient(to bottom, rgba(0,0,0,.02), rgba(0,0,0,.45)),
+        url('road-trip-banner.png') center/cover no-repeat;
+      position: relative;
+      border-bottom: 1px solid rgba(255,255,255,.12);
+      box-shadow: inset 0 -70px 70px rgba(0,0,0,.42), 0 0 55px rgba(0,245,255,.12);
+    }
+    
+    .top-banner span {
+      position: absolute;
+      bottom: 18px;
+      right: 28px;
+      color: white;
+      letter-spacing: 5px;
+      font-size: 22px;
+      opacity: .88;
+      text-transform: lowercase;
+    }
+    .hero {
+      min-height: 68vh;
+      position: relative;
+      display: flex;
+      align-items: center;
+      padding: 54px 0;
+      background: linear-gradient(90deg, rgba(0,0,0,.90), rgba(0,0,0,.28)), url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1800&q=90') center/cover no-repeat;
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, transparent 65%, var(--bg) 100%);
+      pointer-events: none;
+    }
+    .hero-content { position: relative; z-index: 2; max-width: 780px; }
+    .eyebrow {
+      display: inline-flex;
+      gap: 10px;
+      align-items: center;
+      padding: 9px 14px;
+      border: 1px solid rgba(0,245,255,.45);
+      border-radius: 999px;
+      background: rgba(0,245,255,.08);
+      color: var(--cyan);
+      font-size: 13px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      box-shadow: 0 0 24px rgba(0,245,255,.18);
+    }
+    h1 {
+      font-size: clamp(42px, 7vw, 88px);
+      line-height: .95;
+      margin: 22px 0 18px;
+      letter-spacing: -3px;
+      text-shadow: 0 0 35px rgba(0,0,0,.8);
+    }
+    .gradient-text {
+      background: linear-gradient(90deg, #fff, var(--cyan), var(--green));
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+    .subhead {
+      max-width: 720px;
+      font-size: clamp(18px, 2.2vw, 25px);
+      color: #e9edf7;
+      line-height: 1.45;
+      text-shadow: 0 0 18px rgba(0,0,0,.85);
+    }
+    .cta-row { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 30px; }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 15px 22px;
+      border-radius: 14px;
+      font-weight: 800;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.08);
+      backdrop-filter: blur(10px);
+      transition: .2s ease;
+      cursor: pointer;
+    }
+    .btn-primary {
+      color: #001014;
+      background: linear-gradient(90deg, var(--cyan), var(--green));
+      box-shadow: 0 0 30px rgba(0,245,255,.35);
+      border: 0;
+    }
+    .btn:hover { transform: translateY(-2px); box-shadow: 0 0 26px rgba(0,245,255,.20); }
+    section { padding: 76px 0; }
+    .section-title { font-size: clamp(32px, 4vw, 54px); margin: 0 0 14px; letter-spacing: -1px; }
+    .section-copy { color: var(--muted); font-size: 18px; line-height: 1.55; max-width: 800px; }
+    .video-card, .card, .lead-card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 26px;
+      overflow: hidden;
+      box-shadow: 0 0 40px rgba(0,0,0,.28);
+      backdrop-filter: blur(14px);
+    }
+    .video-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      align-items: center;
+      padding: 20px 24px;
+      border-bottom: 1px solid var(--line);
+    }
+    .video-title { font-weight: 900; font-size: 20px; }
+    .pill { color: var(--green); font-size: 13px; letter-spacing: 1.5px; text-transform: uppercase; }
+    .video-frame { aspect-ratio: 16/9; width: 100%; display: block; border: 0; }
+    .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 32px; }
+    .card { padding: 24px; transition: .22s ease; }
+    .card:hover { transform: translateY(-5px); border-color: rgba(0,245,255,.45); }
+    .card h3 { margin: 0 0 10px; font-size: 23px; }
+    .card p { margin: 0; color: var(--muted); line-height: 1.5; }
+    .destinations { display: grid; grid-template-columns: repeat(5, 1fr); gap: 14px; margin-top: 30px; }
+    .destination {
+      position: relative;
+      min-height: 158px;
+      border-radius: 22px;
+      overflow: hidden;
+      display: flex;
+      align-items: end;
+      border: 1px solid rgba(255,255,255,.15);
+      cursor: pointer;
+      background: rgba(255,255,255,.06);
+      isolation: isolate;
+      transform: translateZ(0);
+    }
+    .destination::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,.82), rgba(0,0,0,.08) 65%);
+      z-index: 1;
+    }
+    .destination img {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      top: 0;
+      left: 0;
+      filter: brightness(.82) saturate(1.15);
+      transition: transform .45s ease, filter .45s ease;
+    }
+    .destination span {
+      position: relative;
+      z-index: 2;
+      padding: 14px;
+      font-weight: 900;
+      width: 100%;
+      text-shadow: 0 2px 16px rgba(0,0,0,.9);
+    }
+    .destination small {
+      display: block;
+      margin-top: 5px;
+      color: rgba(255,255,255,.76);
+      font-weight: 600;
+      font-size: 12px;
+    }
+    .destination:hover img { transform: scale(1.12); filter: brightness(1) saturate(1.35); }
+    .destination:hover { border-color: rgba(0,245,255,.6); box-shadow: 0 0 28px rgba(0,245,255,.16); }
+    .destination.mountain:hover { box-shadow: 0 0 34px rgba(0,245,255,.28); }
+    .destination.desert:hover { box-shadow: 0 0 34px rgba(255,200,87,.28); border-color: rgba(255,200,87,.55); }
+    .destination.ocean:hover { box-shadow: 0 0 34px rgba(57,255,136,.25); border-color: rgba(57,255,136,.55); }
+    .destination.forest:hover { box-shadow: 0 0 34px rgba(57,255,136,.22); border-color: rgba(57,255,136,.45); }
+    .parallax-lite {
+      transform: translateY(0);
+      animation: floatIn 900ms ease both;
+      will-change: transform;
+    }
+    .destination:nth-child(odd) img { transform: scale(1.04); }
+    .destination:nth-child(even) img { transform: scale(1.02); }
+    .destination:hover img { transform: scale(1.14) translateY(-4px); }
+    @keyframes floatIn {
+      from { opacity: 0; transform: translateY(18px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .tools { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-top: 30px; }
+    .tool {
+      padding: 18px;
+      border-radius: 18px;
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.12);
+      color: var(--muted);
+      transition: .2s ease;
+    }
+    .tool:hover { transform: translateY(-4px); border-color: rgba(57,255,136,.42); }
+    .feature-image {
+      margin: 0 0 26px;
+      border-radius: 28px;
+      overflow: hidden;
+      border: 1px solid rgba(0,245,255,.28);
+      box-shadow: 0 0 50px rgba(0,245,255,.12);
+      background: rgba(255,255,255,.05);
+    }
+    .feature-image img { width: 100%; display: block; aspect-ratio: 2 / 1; object-fit: cover; object-position: center; }
+    .van-link-card, .map-card {
+      margin-top: 22px;
+      padding: 24px;
+      border-radius: 26px;
+      border: 1px solid rgba(255,255,255,.14);
+      background: linear-gradient(135deg, rgba(0,245,255,.10), rgba(57,255,136,.06), rgba(255,200,87,.08));
+      box-shadow: 0 0 42px rgba(0,0,0,.28);
+    }
+    .map-preview {
+      display: block;
+      width: 100%;
+      min-height: 300px;
+      border-radius: 22px;
+      margin-top: 18px;
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(0,245,255,.25);
+      background:
+        radial-gradient(circle at 20% 35%, rgba(0,245,255,.45) 0 3px, transparent 4px),
+        radial-gradient(circle at 36% 58%, rgba(57,255,136,.45) 0 3px, transparent 4px),
+        radial-gradient(circle at 52% 42%, rgba(255,200,87,.55) 0 3px, transparent 4px),
+        radial-gradient(circle at 70% 62%, rgba(0,245,255,.45) 0 3px, transparent 4px),
+        linear-gradient(135deg, rgba(0,50,70,.85), rgba(3,4,6,.94));
+    }
+    .map-preview::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(26deg, transparent 47%, rgba(0,245,255,.35) 48%, rgba(0,245,255,.35) 49%, transparent 50%),
+        linear-gradient(142deg, transparent 48%, rgba(57,255,136,.25) 49%, rgba(57,255,136,.25) 50%, transparent 51%);
+      opacity: .7;
+    }
+    .map-preview-content {
+      position: absolute;
+      left: 24px;
+      right: 24px;
+      bottom: 24px;
+      z-index: 2;
+      max-width: 720px;
+    }
+    .tool strong { display: block; color: var(--text); margin-bottom: 6px; }
+    .lead-card { padding: 28px; margin-top: 30px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr auto; gap: 12px; margin-top: 18px; }
+    input {
+      width: 100%;
+      padding: 15px 16px;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,.18);
+      background: rgba(0,0,0,.35);
+      color: white;
+      font-size: 16px;
+      outline: none;
+    }
+    input:focus { border-color: var(--cyan); box-shadow: 0 0 20px rgba(0,245,255,.14); }
+    .freedom-strip {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 12px;
+      margin-top: 30px;
+    }
+    .freedom-item {
+      padding: 18px 12px;
+      border-radius: 18px;
+      text-align: center;
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.12);
+    }
+    .freedom-item b { display: block; margin-top: 8px; font-size: 14px; }
+    .closing {
+      text-align: center;
+      padding: 90px 20px;
+      border-radius: 34px;
+      background: linear-gradient(135deg, rgba(0,245,255,.16), rgba(57,255,136,.10), rgba(255,200,87,.10));
+      border: 1px solid var(--line);
+    }
+    .closing h2 { font-size: clamp(34px, 5vw, 64px); margin: 0 0 18px; }
+    footer { padding: 34px 0 48px; color: var(--muted); text-align: center; }
+    .modal {
+      position: fixed;
+      inset: 0;
+      display: none;
+      place-items: center;
+      padding: 24px;
+      background: rgba(0,0,0,.76);
+      z-index: 50;
+    }
+    .modal:target { display: grid; }
+    .modal-box {
+      width: min(720px, 100%);
+      background: #070a0f;
+      border: 1px solid rgba(0,245,255,.28);
+      border-radius: 28px;
+      overflow: hidden;
+      box-shadow: 0 0 60px rgba(0,245,255,.16);
+    }
+    .modal-box img { width: 100%; height: 290px; object-fit: cover; display: block; }
+    .modal-content { padding: 24px; }
+    .modal-content p { color: var(--muted); line-height: 1.55; }
+    @media (max-width: 980px) {
+      .grid, .tools { grid-template-columns: 1fr 1fr; }
+      .destinations { grid-template-columns: 1fr 1fr 1fr; }
+      .freedom-strip { grid-template-columns: repeat(3, 1fr); }
+      .form-row { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 620px) {
+      .grid, .tools, .destinations, .freedom-strip { grid-template-columns: 1fr; }
+      h1 { letter-spacing: -1px; }
+      .hero { min-height: 72vh; background-position: center; }
+      .top-banner { height: 230px; }
+      .video-top { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
 </head>
 <body>
 <div class="outer"><div class="page">
@@ -923,7 +1273,7 @@ buildCityNav();
 function renderRoadTrip(){
   var elem = document.getElementById('tab-roadtrip');
   if(!elem) return;
-  var html = '<div class="road-hero"><div class="content"><div class="eyebrow">Road Trip • Work Anywhere • Live Fully</div><div class="h1">The Open Road <span>Freedom Planner</span></div><div class="lead" style="margin-left:0;text-align:left">A lifestyle hub for road trips, van life, bucket-list destinations, and the bigger idea: design a life where work, travel, freedom, and family fit in the same suitcase.</div><a class="btn primary" href="#roadTools">Start the Planner</a></div></div><div class="section"><div class="section-title">Call of the Open Road</div><div class="section-copy">Featured inspiration video plus your favorite Class B van tour.</div><div class="video-card"><iframe class="video-frame" loading="lazy" allowfullscreen src="https://www.youtube.com/embed/Sp-_48JKsVU?rel=0" title="Call of the Open Road"></iframe></div><div style="text-align:center;margin-top:1rem"><a class="btn" href="https://www.youtube.com/watch?v=HpyMcQ46x0s" target="_blank">Watch Coachmen Nova C 2026 Van Tour</a></div></div><div class="section alt"><div class="section-title">15 Stops • One Epic Route</div><div class="section-copy">A bucket-list route across mountains, deserts, coastlines, national parks, and unforgettable small towns.</div><div class="route-strip"><div class="route-stop">Lake Tahoe</div><div class="route-stop">Yosemite</div><div class="route-stop">Sedona</div><div class="route-stop">Yellowstone</div><div class="route-stop">Jackson Hole</div><div class="route-stop">Key West</div></div></div><div class="section" id="roadTools"><div class="section-title">Road Trip Tools</div><div class="section-copy">The simple stack for planning routes, finding stays, saving money, and making the trip easier.</div><div class="tools"><a class="tool" target="_blank" href="https://roadtrippers.com/"><strong>Roadtrippers</strong><span>Route planning</span></a><a class="tool" target="_blank" href="https://rvlife.com/"><strong>RV Life</strong><span>RV-safe planning</span></a><a class="tool" target="_blank" href="https://adventuregenie.com/"><strong>AdventureGenie</strong><span>AI trip planning</span></a><a class="tool" target="_blank" href="https://thedyrt.com/pro"><strong>The Dyrt Pro</strong><span>Campgrounds</span></a><a class="tool" target="_blank" href="https://harvesthosts.com/"><strong>Harvest Hosts</strong><span>Unique stays</span></a><a class="tool" target="_blank" href="https://passportamerica.com/"><strong>Passport America</strong><span>Camping discounts</span></a><a class="tool" target="_blank" href="https://thousandtrails.com/membership-info"><strong>Thousand Trails</strong><span>Membership camping</span></a><a class="tool" target="_blank" href="https://koa.com/rewards/"><strong>KOA Rewards</strong><span>Rewards program</span></a></div><div style="text-align:center;margin-top:1.2rem"><a class="btn primary" href="https://maps.roadtrippers.com/?a3=t!32155199&lat=33.61281&lng=-98.46705&utm_campaign=trip&utm_medium=share&utm_source=copy&z=3.86627" target="_blank">Open Full Road Trip Map</a></div></div>';
+  var html = '<div class="road-hero"><div class="content"><div class="eyebrow">Road Trip • Work Anywhere • Live Fully</div><h1 style="font-size:3.2rem;margin:20px 0;color:white">The Open Road <span style="background:linear-gradient(90deg,#00f5ff,#39ff88);-webkit-background-clip:text;color:transparent">Freedom Planner</span></h1><div class="subhead" style="font-size:1.1rem;max-width:700px">A lifestyle hub for road trips, van life, bucket-list destinations, and the bigger idea: design a life where work, travel, freedom, and family fit in the same suitcase.</div><button class="btn btn-primary" style="margin-top:20px">Start the Planner</button></div></div><section><div class="section-title">Call of the Open Road</div><div class="section-copy">Featured inspiration video plus your favorite Class B van tour.</div><div class="video-card" style="margin-top:20px"><div class="video-top"><div class="video-title">Leisure Travel Vans</div><span class="pill">Featured</span></div><iframe class="video-frame" loading="lazy" allowfullscreen src="https://www.youtube.com/embed/Sp-_48JKsVU?rel=0" title="Call of the Open Road"></iframe></div><div style="text-align:center;margin-top:20px"><a class="btn btn-primary" href="https://www.youtube.com/watch?v=HpyMcQ46x0s" target="_blank">Watch Coachmen Nova C 2026 Van Tour</a></div></section><section><div class="section-title">15 Breathtaking USA Places</div><div class="section-copy">A bucket-list route across mountains, deserts, coastlines, national parks, and unforgettable small towns. Never read one — more so we have the good stuff.</div><div class="destinations">' + ['Lake Tahoe, CA', 'Yosemite, CA', 'Redwood National', 'Grand Canyon, AZ', 'Pacific Northwest', 'Arches, UT', 'Great Salt Lake, UT', 'Aspen, CO', 'Key West, FL', 'Blue Ridge Parkway'].map(x => '<div class="destination"><span>' + x + '</span></div>').join('') + '</div></section><section><div class="section-title">Road Trip Tools</div><div class="section-copy">The simple stack for planning routes, finding stays, saving money, and making the trip easier.</div><div class="tools">' + [['Roadtrippers','Route planning'], ['RV Life','RV-safe planning'], ['AdventureGenie','AI trip planning'], ['The Dyrt Pro','Campgrounds'], ['Harvest Hosts','Unique stays'], ['Passport America','Camping discounts'], ['Thousand Trails','Membership camping'], ['KOA Rewards','Rewards program']].map(([n,d]) => '<div class="tool"><strong>' + n + '</strong><span>' + d + '</span></div>').join('') + '</div><div style="text-align:center;margin-top:30px"><a class="btn btn-primary" href="https://maps.roadtrippers.com/?a3=t!32155199&lat=33.61281&lng=-98.46705&utm_campaign=trip&utm_medium=share&utm_source=copy&z=3.86627" target="_blank">Open Full Road Trip Map</a></div></section>';
   elem.innerHTML = html;
 }
 </script>
