@@ -1252,6 +1252,36 @@ var PILLARS = [
   {i:"",e:"💰",n:"Annuities & Longevity",s:"People with annuities live longer",d:"Guaranteed lifetime income reduces financial stress, improves healthcare access, and supports positive outlook."}
 ];
 
+// ── HASH ROUTING MAP ──
+var HASH_TO_TAB = {
+  "dream":"dream","the-dream":"dream",
+  "cities":"cities","city-guides":"cities",
+  "laketahoe":"cities","lake-tahoe":"cities","tahoe":"cities",
+  "sandiego":"cities","san-diego":"cities",
+  "charleston":"cities",
+  "savannah":"cities",
+  "sedona":"cities",
+  "nashville":"cities",
+  "keywest":"cities","key-west":"cities",
+  "jackson":"cities","jacksonhole":"cities","jackson-hole":"cities",
+  "usa":"usa","usabucketlist":"usa","usa-bucket-list":"usa",
+  "parks":"parks","nationalparks":"parks","national-parks":"parks",
+  "roadtrip":"roadtrip","road-trip":"roadtrip",
+  "world":"world","worldbucketlist":"world","world-bucket-list":"world",
+  "live100":"live100","liveto100":"live100","live-to-100":"live100",
+  "legacy":"legacy","your-legacy":"legacy"
+};
+var HASH_TO_CITY = {
+  "laketahoe":"tahoe","lake-tahoe":"tahoe","tahoe":"tahoe",
+  "sandiego":"sandiego","san-diego":"sandiego",
+  "charleston":"charleston",
+  "savannah":"savannah",
+  "sedona":"sedona",
+  "nashville":"nashville",
+  "keywest":"keywest","key-west":"keywest",
+  "jackson":"jackson","jacksonhole":"jackson","jackson-hole":"jackson"
+};
+var TAB_HASH_MAP = {"dream":"dream","cities":"cities","usa":"usa","parks":"nationalparks","roadtrip":"roadtrip","world":"worldbucketlist","live100":"liveto100","legacy":"legacy"};
 // ── TABS ──
 function ST(t, el) {
   document.querySelectorAll(".nb").forEach(function(b){b.classList.remove("active")});
@@ -1260,6 +1290,7 @@ function ST(t, el) {
     var el=document.getElementById("tab-"+id);
     if(el) el.style.display = id===t ? "block" : "none";
   });
+  history.replaceState(null,"","#"+(TAB_HASH_MAP[t]||t));
 }
 
 // ── CITY NAV ──
@@ -1278,6 +1309,7 @@ function selCity(k,el) {
   document.querySelectorAll(".cbtn").forEach(function(b){b.classList.remove("active")});
   el.classList.add("active");
   AC=k; renderCity(k);
+  history.replaceState(null,"","#"+k);
 }
 
 function renderCity(k) {
@@ -1526,13 +1558,33 @@ document.addEventListener("click",function(e){var c=e.target.closest(".pc.lnk");
   calcUpdate();
 })();
 buildCityNav();
-
   renderCity("tahoe");
   buildPillars();
   buildUSA();
   buildParks();
   buildWorld();
   renderRoadTrip();
+  // ── DEEP LINK: read hash on page load ──
+  setTimeout(function(){
+    var raw=(window.location.hash||"").replace(/^#/,"").toLowerCase().trim();
+    if(!raw) return;
+    var tab=HASH_TO_TAB[raw];
+    if(!tab) return;
+    var tabOrder=["dream","cities","usa","parks","roadtrip","world","live100","legacy"];
+    var idx=tabOrder.indexOf(tab);
+    var navBtns=document.querySelectorAll(".nb");
+    if(navBtns[idx]) ST(tab,navBtns[idx]);
+    var city=HASH_TO_CITY[raw];
+    if(city){
+      AC=city;
+      renderCity(city);
+      var CO_arr=["tahoe","sandiego","charleston","savannah","sedona","nashville","keywest","jackson"];
+      var ci=CO_arr.indexOf(city);
+      document.querySelectorAll(".cbtn").forEach(function(b){b.classList.remove("active");});
+      var cityBtns=document.querySelectorAll(".cbtn");
+      if(cityBtns[ci]) cityBtns[ci].classList.add("active");
+    }
+  }, 0);
 });
 
 function renderRoadTrip(){
