@@ -743,7 +743,18 @@ a.vl:hover{border-color:var(--tl);background:rgba(0,201,184,.05)}
       .rg2 { grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); }
       .route-strip { grid-template-columns: 1fr 1fr; }
     }
-  </style>
+  
+/* ── DBR FOOTER ── */
+.dbr-footer { background: #071428; border-top: 1px solid #1a3050; padding: 2.5rem 1.5rem; text-align: center; margin-top: 0; }
+.dbr-footer-inner { max-width: 1100px; margin: 0 auto; }
+.dbr-footer-brand { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-weight: 700; color: #00C9B8; letter-spacing: 0.06em; }
+.dbr-footer-sub { font-size: 0.68rem; letter-spacing: 0.16em; text-transform: uppercase; color: #6A8FA8; margin-top: 4px; }
+.dbr-footer-links { display: flex; justify-content: center; flex-wrap: wrap; gap: 1.4rem; margin-top: 1.2rem; }
+.dbr-footer-links a { font-size: 0.8rem; color: #6A8FA8; text-decoration: none; letter-spacing: 0.06em; transition: color 0.2s; }
+.dbr-footer-links a:hover { color: #00C9B8; }
+.dbr-footer-copy { margin-top: 1.2rem; font-size: 0.72rem; color: #6A8FA8; opacity: 0.6; }
+
+</style>
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Renewals for Lifestyle">
@@ -1626,5 +1637,22 @@ function renderRoadTrip(){
   elem.innerHTML = html;
 }
 </script>
+
+  <!-- DBR FOOTER -->
+  <footer class="dbr-footer">
+    <div class="dbr-footer-inner">
+      <div class="dbr-footer-brand">Dreams Business Resources</div>
+      <div class="dbr-footer-sub">Dreams Business Resources &middot; Lifestyle Design Intelligence</div>
+      <nav class="dbr-footer-links">
+        <a href="https://renewalsforlife.com/" target="_blank" rel="noopener">Renewals for Life</a>
+        <a href="https://aigenies.pro/" target="_blank" rel="noopener">AI Genie PRO</a>
+        <a href="https://dreamsscores.com/?refid=AA0233" target="_blank" rel="noopener">Dreams Score</a>
+        <a href="https://familylegacy.pro/" target="_blank" rel="noopener">Family Legacy</a>
+        <a href="https://dreamsfaststart.com/portfolio.html" target="_blank" rel="noopener">DBR Portfolio</a>
+      </nav>
+      <div class="dbr-footer-copy">&copy; 2026 Dreams Business Resources. All rights reserved.</div>
+    </div>
+  </footer>
+
 </body>
 </html>
