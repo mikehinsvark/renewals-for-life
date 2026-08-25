@@ -1,0 +1,376 @@
+/* Renewals for Lifestyle — cinematic homepage hero */
+.lifestyle-hero {
+  position: relative;
+  min-height: clamp(620px, 80vh, 780px);
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+  isolation: isolate;
+  border-bottom: 1px solid rgba(0, 242, 254, 0.24);
+  background: #02090f;
+}
+
+.lifestyle-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  background:
+    linear-gradient(90deg, rgba(1, 7, 13, 0.95) 0%, rgba(2, 10, 17, 0.8) 38%, rgba(2, 10, 17, 0.25) 70%, rgba(2, 10, 17, 0.18) 100%),
+    linear-gradient(180deg, rgba(1, 8, 16, 0.2) 0%, rgba(1, 8, 16, 0.06) 44%, rgba(1, 8, 16, 0.94) 100%);
+}
+
+.lifestyle-hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 15% 32%, rgba(0, 242, 254, 0.13), transparent 28%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.035), transparent 22%);
+  mix-blend-mode: screen;
+}
+
+.lifestyle-hero-slides,
+.lifestyle-hero-slide {
+  position: absolute;
+  inset: 0;
+}
+
+.lifestyle-hero-slide {
+  z-index: 0;
+  opacity: 0;
+  transform: scale(1.045);
+  transition: opacity 1.15s ease, transform 8s ease;
+}
+
+.lifestyle-hero-slide.active {
+  z-index: 1;
+  opacity: 1;
+  transform: scale(1);
+}
+
+.lifestyle-hero-slide img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: center;
+}
+
+.lifestyle-hero-slide:nth-child(1) img { object-position: 55% center; }
+.lifestyle-hero-slide:nth-child(2) img { object-position: 62% center; }
+.lifestyle-hero-slide:nth-child(3) img { object-position: 48% center; }
+.lifestyle-hero-slide:nth-child(4) img { object-position: 66% center; }
+.lifestyle-hero-slide:nth-child(5) img { object-position: 62% center; }
+.lifestyle-hero-slide:nth-child(6) img { object-position: 57% center; }
+.lifestyle-hero-slide:nth-child(7) img { object-position: 54% center; }
+
+.lifestyle-hero-inner {
+  position: relative;
+  z-index: 4;
+  width: 100%;
+  padding: clamp(5rem, 10vw, 7.4rem) clamp(1.4rem, 6vw, 4.2rem) clamp(7.2rem, 12vw, 9rem);
+}
+
+.lifestyle-hero-copy { max-width: 620px; }
+
+.lifestyle-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  margin-bottom: 1.15rem;
+  padding: 0.52rem 0.82rem;
+  border: 1px solid rgba(128, 247, 255, 0.34);
+  border-radius: 999px;
+  background: rgba(4, 13, 18, 0.5);
+  box-shadow: 0 0 32px rgba(0, 242, 254, 0.1);
+  backdrop-filter: blur(12px);
+  color: #80f7ff;
+  font: 600 0.58rem "Jost", sans-serif;
+  letter-spacing: 0.23em;
+  text-transform: uppercase;
+}
+
+.lifestyle-kicker::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #39ff88;
+  box-shadow: 0 0 12px #39ff88;
+}
+
+.lifestyle-hero h1 {
+  max-width: 610px;
+  margin: 0;
+  color: #f1f5f9;
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(3.25rem, 7.1vw, 5.35rem);
+  font-weight: 400;
+  line-height: 0.91;
+  letter-spacing: -0.045em;
+  text-wrap: balance;
+  text-shadow: 0 10px 42px rgba(0, 0, 0, 0.58);
+}
+
+.lifestyle-hero h1 em {
+  display: block;
+  padding-bottom: 0.08em;
+  background: linear-gradient(96deg, #f0e8d5 0%, #80f7ff 52%, #39ff88 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-weight: 600;
+}
+
+.lifestyle-hero-lead {
+  max-width: 565px;
+  margin: 1.3rem 0 0;
+  color: rgba(226, 238, 245, 0.86);
+  font-size: clamp(0.9rem, 1.6vw, 1.03rem);
+  font-weight: 300;
+  line-height: 1.7;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.75);
+}
+
+.lifestyle-hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.68rem;
+  margin-top: 1.65rem;
+}
+
+.lifestyle-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.52rem;
+  min-height: 48px;
+  padding: 0.82rem 1.02rem;
+  border-radius: 5px;
+  text-decoration: none;
+  font: 700 0.56rem "Jost", sans-serif;
+  letter-spacing: 0.125em;
+  text-transform: uppercase;
+  transition: transform 0.22s ease, border-color 0.22s ease, box-shadow 0.22s ease, background 0.22s ease;
+}
+
+.lifestyle-cta:hover { transform: translateY(-3px); }
+
+.lifestyle-cta-primary {
+  border: 1px solid #80f7ff;
+  background: linear-gradient(110deg, #80f7ff, #00f2fe 60%, #39ff88);
+  color: #021116;
+  box-shadow: 0 12px 38px rgba(0, 242, 254, 0.25), 0 0 0 1px rgba(255, 255, 255, 0.14) inset;
+}
+
+.lifestyle-cta-primary:hover {
+  box-shadow: 0 18px 48px rgba(0, 242, 254, 0.38), 0 0 24px rgba(128, 247, 255, 0.2);
+}
+
+.lifestyle-cta-secondary {
+  border: 1px solid rgba(128, 247, 255, 0.5);
+  background: rgba(3, 15, 23, 0.7);
+  color: #f1f5f9;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.28);
+  backdrop-filter: blur(14px);
+}
+
+.lifestyle-cta-secondary:hover {
+  border-color: #80f7ff;
+  background: rgba(0, 242, 254, 0.12);
+  box-shadow: 0 0 28px rgba(0, 242, 254, 0.2);
+}
+
+.lifestyle-cta-quiet {
+  border: 1px solid rgba(240, 232, 213, 0.3);
+  background: rgba(3, 10, 16, 0.48);
+  color: #f0e8d5;
+  backdrop-filter: blur(12px);
+}
+
+.lifestyle-cta-quiet:hover {
+  border-color: #f0e8d5;
+  background: rgba(240, 232, 213, 0.09);
+  box-shadow: 0 0 24px rgba(240, 232, 213, 0.12);
+}
+
+.lifestyle-hero-meta {
+  position: absolute;
+  z-index: 5;
+  left: clamp(1.4rem, 6vw, 4.2rem);
+  right: clamp(1.4rem, 4vw, 2.8rem);
+  bottom: 1.35rem;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: end;
+  gap: 1.25rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(128, 247, 255, 0.22);
+}
+
+.lifestyle-slide-copy { min-width: 0; }
+
+.lifestyle-slide-label {
+  display: block;
+  color: #80f7ff;
+  font: 600 0.52rem "Jost", sans-serif;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.lifestyle-slide-title {
+  display: block;
+  margin-top: 0.25rem;
+  overflow: hidden;
+  color: #f1f5f9;
+  font: 600 clamp(0.95rem, 2vw, 1.2rem) "Cormorant Garamond", serif;
+  letter-spacing: 0.01em;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.lifestyle-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+}
+
+.lifestyle-count {
+  min-width: 50px;
+  color: #94a3b8;
+  font: 600 0.55rem "Jost", sans-serif;
+  letter-spacing: 0.16em;
+  text-align: center;
+}
+
+.lifestyle-count strong { color: #80f7ff; font-weight: 600; }
+
+.lifestyle-arrow {
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  border: 1px solid rgba(128, 247, 255, 0.34);
+  border-radius: 50%;
+  background: rgba(3, 13, 20, 0.68);
+  color: #80f7ff;
+  cursor: pointer;
+  backdrop-filter: blur(12px);
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.lifestyle-arrow:hover {
+  transform: translateY(-2px);
+  border-color: #80f7ff;
+  box-shadow: 0 0 24px rgba(0, 242, 254, 0.2);
+}
+
+.lifestyle-arrow svg {
+  width: 16px;
+  height: 16px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.lifestyle-dots {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.lifestyle-dot {
+  width: 21px;
+  height: 3px;
+  padding: 0;
+  border: 0;
+  border-radius: 999px;
+  background: rgba(226, 238, 245, 0.26);
+  cursor: pointer;
+  overflow: hidden;
+  transition: width 0.25s ease, background 0.25s ease;
+}
+
+.lifestyle-dot.active {
+  width: 42px;
+  background: #00f2fe;
+  box-shadow: 0 0 12px rgba(0, 242, 254, 0.65);
+}
+
+.lifestyle-skip {
+  position: absolute;
+  z-index: 5;
+  left: 50%;
+  bottom: 0.32rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transform: translateX(-50%);
+  color: rgba(226, 238, 245, 0.54);
+  font: 500 0.48rem "Jost", sans-serif;
+  letter-spacing: 0.18em;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.lifestyle-skip::after {
+  content: "";
+  width: 1px;
+  height: 18px;
+  background: linear-gradient(#80f7ff, transparent);
+}
+
+@media (max-width: 720px) {
+  .lifestyle-hero { min-height: 735px; }
+
+  .lifestyle-hero::before {
+    background: linear-gradient(180deg, rgba(1, 7, 13, 0.2) 0%, rgba(1, 7, 13, 0.18) 22%, rgba(1, 7, 13, 0.88) 57%, rgba(1, 7, 13, 0.98) 100%);
+  }
+
+  .lifestyle-hero-slide img { object-position: center 24%; }
+  .lifestyle-hero-slide:nth-child(2) img,
+  .lifestyle-hero-slide:nth-child(4) img,
+  .lifestyle-hero-slide:nth-child(5) img,
+  .lifestyle-hero-slide:nth-child(6) img { object-position: 62% 24%; }
+
+  .lifestyle-hero-inner { padding: 19rem 1.15rem 9.2rem; }
+  .lifestyle-hero h1 { font-size: clamp(3rem, 13.5vw, 4.4rem); line-height: 0.92; }
+  .lifestyle-hero-lead { font-size: 0.84rem; line-height: 1.6; }
+  .lifestyle-hero-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 0.55rem; }
+  .lifestyle-cta { padding: 0.72rem 0.58rem; font-size: 0.51rem; letter-spacing: 0.085em; }
+
+  .lifestyle-hero-meta {
+    left: 1.15rem;
+    right: 1.15rem;
+    bottom: 1.3rem;
+    grid-template-columns: 1fr;
+    gap: 0.72rem;
+  }
+
+  .lifestyle-controls { justify-content: space-between; }
+  .lifestyle-dots { order: 2; }
+  .lifestyle-count { order: 3; }
+  .lifestyle-slide-title { white-space: normal; line-height: 1.15; }
+  .lifestyle-skip { display: none; }
+}
+
+@media (max-width: 420px) {
+  .lifestyle-hero { min-height: 720px; }
+  .lifestyle-hero-inner { padding-top: 17.8rem; }
+  .lifestyle-kicker { font-size: 0.49rem; letter-spacing: 0.16em; }
+  .lifestyle-dot { width: 14px; }
+  .lifestyle-dot.active { width: 27px; }
+  .lifestyle-arrow { width: 34px; height: 34px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lifestyle-hero-slide,
+  .lifestyle-cta,
+  .lifestyle-arrow { transition: none; }
+}
