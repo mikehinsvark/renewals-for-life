@@ -185,6 +185,20 @@
   box-shadow: 0 0 28px rgba(0, 242, 254, 0.2);
 }
 
+.lifestyle-cta-assets {
+  border: 1px solid rgba(228, 199, 129, 0.58);
+  background: linear-gradient(135deg, rgba(228, 199, 129, 0.16), rgba(3, 15, 23, 0.72));
+  color: #f0e8d5;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(14px);
+}
+
+.lifestyle-cta-assets:hover {
+  border-color: #e4c781;
+  background: rgba(228, 199, 129, 0.14);
+  box-shadow: 0 0 26px rgba(228, 199, 129, 0.16);
+}
+
 .lifestyle-cta-quiet {
   border: 1px solid rgba(240, 232, 213, 0.3);
   background: rgba(3, 10, 16, 0.48);
@@ -342,8 +356,10 @@
   .lifestyle-hero-inner { padding: 14.5rem 1.15rem 8.2rem; }
   .lifestyle-hero h1 { font-size: clamp(2.75rem, 12.5vw, 4rem); line-height: 0.92; }
   .lifestyle-hero-lead { margin-top: 0.9rem; font-size: 0.84rem; line-height: 1.5; }
-  .lifestyle-hero-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; margin-top: 1.1rem; }
-  .lifestyle-cta { padding: 0.64rem 0.55rem; font-size: 0.51rem; letter-spacing: 0.085em; }
+  .lifestyle-hero-actions { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 0.5rem; margin-top: 1.1rem; }
+  .lifestyle-hero-actions .lifestyle-cta { grid-column: span 2; white-space: normal; text-align: center; line-height: 1.2; }
+  .lifestyle-hero-actions .lifestyle-cta:nth-child(n + 4) { grid-column: span 3; }
+  .lifestyle-cta { padding: 0.64rem 0.45rem; font-size: 0.49rem; letter-spacing: 0.07em; }
 
   .lifestyle-hero-meta {
     left: 1.15rem;
