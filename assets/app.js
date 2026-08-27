@@ -86,3 +86,51 @@
   });
   updateRegretScore();
 })();
+
+
+(() => {
+  const rail = document.querySelector('.assets-scroll-rail');
+  if (!rail) return;
+
+  const targets = ['top', 'idea', 'dividend', 'truth', 'retreat', 'legacy', 'test', 'next-step'];
+  const dots = Array.from(rail.querySelectorAll('[data-assets-target]'));
+  const upButton = rail.querySelector('[data-assets-scroll="up"]');
+  const downButton = rail.querySelector('[data-assets-scroll="down"]');
+
+  const setActive = (target) => {
+    dots.forEach((dot) => {
+      const active = dot.dataset.assetsTarget === target;
+      dot.classList.toggle('active', active);
+      if (active) dot.setAttribute('aria-current', 'page');
+      else dot.removeAttribute('aria-current');
+    });
+  };
+
+  const updateRail = () => {
+    const readingLine = window.scrollY + window.innerHeight * 0.38;
+    let active = 'top';
+    targets.slice(1).forEach((target) => {
+      const section = document.getElementById(target);
+      if (section && section.offsetTop <= readingLine) active = target;
+    });
+    setActive(active);
+
+    const bottom = Math.ceil(window.scrollY + window.innerHeight) >= document.documentElement.scrollHeight - 4;
+    if (upButton) upButton.disabled = window.scrollY <= 4;
+    if (downButton) downButton.disabled = bottom;
+  };
+
+  dots.forEach((dot) => {
+    dot.addEventListener('click', () => {
+      const target = dot.dataset.assetsTarget;
+      if (target === 'top') window.scrollTo({ top: 0, behavior: 'smooth' });
+      else document.getElementById(target)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  });
+
+  upButton?.addEventListener('click', () => window.scrollBy({ top: -Math.round(window.innerHeight * 0.78), behavior: 'smooth' }));
+  downButton?.addEventListener('click', () => window.scrollBy({ top: Math.round(window.innerHeight * 0.78), behavior: 'smooth' }));
+  window.addEventListener('scroll', updateRail, { passive: true });
+  window.addEventListener('resize', updateRail);
+  updateRail();
+})();
