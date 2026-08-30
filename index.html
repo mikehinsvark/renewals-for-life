@@ -1384,7 +1384,7 @@ var HASH_TO_TAB = {
   "roadtrip":"roadtrip","road-trip":"roadtrip",
   "world":"world","worldbucketlist":"world","world-bucket-list":"world",
   "live100":"live100","liveto100":"live100","live-to-100":"live100",
-  "legacy":"legacy","your-legacy":"legacy"
+  "legacy":"legacy","baja":"baja","your-legacy":"legacy"
 };
 var HASH_TO_CITY = {
   "laketahoe":"tahoe","lake-tahoe":"tahoe","tahoe":"tahoe",
@@ -1396,12 +1396,12 @@ var HASH_TO_CITY = {
   "keywest":"keywest","key-west":"keywest",
   "jackson":"jackson","jacksonhole":"jackson","jackson-hole":"jackson"
 };
-var TAB_HASH_MAP = {"dream":"dream","cities":"cities","usa":"usa","parks":"nationalparks","roadtrip":"roadtrip","world":"worldbucketlist","live100":"liveto100","legacy":"legacy"};
+var TAB_HASH_MAP = {"dream":"dream","cities":"cities","usa":"usa","parks":"nationalparks","roadtrip":"roadtrip","world":"worldbucketlist","live100":"liveto100","legacy":"legacy","baja":"baja"};
 // ── TABS ──
 function ST(t, el) {
   document.querySelectorAll(".nb").forEach(function(b){b.classList.remove("active")});
   if(el) el.classList.add("active");
-  ["dream","cities","usa","parks","roadtrip","world","live100","legacy"].forEach(function(id){
+  ["dream","cities","usa","parks","roadtrip","world","live100","legacy","baja"].forEach(function(id){
     var panel=document.getElementById("tab-"+id);
     if(panel) panel.style.display = id===t ? "block" : "none";
   });
@@ -1409,7 +1409,7 @@ function ST(t, el) {
   updateScrollRail(t);
 }
 
-var RAIL_TABS = ["dream","cities","usa","parks","roadtrip","world","live100","legacy"];
+var RAIL_TABS = ["dream","cities","usa","parks","roadtrip","world","live100","legacy","baja"];
 function updateScrollRail(tab) {
   document.querySelectorAll(".scroll-rail-dot").forEach(function(dot){
     var active = dot.getAttribute("data-tab") === tab;
@@ -1716,7 +1716,7 @@ buildCityNav();
     if(!raw) return;
     var tab=HASH_TO_TAB[raw];
     if(!tab) return;
-    var tabOrder=["dream","cities","usa","parks","roadtrip","world","live100","legacy"];
+    var tabOrder=["dream","cities","usa","parks","roadtrip","world","live100","legacy","baja"];
     var idx=tabOrder.indexOf(tab);
     var navBtns=document.querySelectorAll(".nb");
     if(navBtns[idx]) ST(tab,navBtns[idx]);
