@@ -32,6 +32,14 @@ files identical. Shared styles, scripts and images need only one edit.
 The supplied three-brand artwork is displayed through a CSS viewport showing
 the left DREAMS Business Resources logo. Its original bitmap is unchanged.
 
+`page-frame.css` centers the complete page in a bordered canvas, capped at
+1360 pixels. The desktop gutter holds the up/down controls and eight section
+shortcuts from `page-nav.js`. At 1100 pixels and below, or in short windows,
+the navigator becomes a bottom bar with an expandable Sections menu. Scroll
+targets account for the sticky header, update after content resizes, and
+respect reduced-motion preferences. The navigator also supports Home, End,
+and arrow keys; Escape closes the compact menu. It is hidden when printing.
+
 Before release: verify both pages, 7 recurring and 7 one-time defaults, mobile
 overflow, arithmetic, storage isolation, link copying, and at least two rep
 codes through the hub's Save/Clear ID flow. Also check invalid paths stay 404.
