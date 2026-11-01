@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex"><title>DREAMS Business Resources</title>
+<script>
+(() => {
+  const match = location.pathname.match(/^\/(AA\d{4})\/?$/i);
+  if (!match) return;
+  const target = new URL('/dbr/', location.origin);
+  target.search = location.search;
+  target.searchParams.set('refid', match[1].toUpperCase());
+  target.hash = location.hash;
+  location.replace(target.href);
+})();
+</script>
+<style>body{margin:0;background:#041020;color:#eff7ff;font:17px/1.6 system-ui,sans-serif;display:grid;place-items:center;min-height:100vh}main{max-width:620px;padding:40px}small{color:#a8ed56;letter-spacing:.16em}h1{line-height:1.15;font-size:clamp(32px,6vw,52px)}p{color:#b9cee1}a{color:#70e6dc}a:focus-visible{outline:3px solid #a8ed56;outline-offset:6px}</style>
+</head><body><main><small>DREAMS BUSINESS RESOURCES</small><h1 id="route-title">Let's find your next step.</h1><p id="route-message">That page is not available. Explore our income and lifestyle builder or return to the home page.</p><p><a id="route-link" href="/AA0233/">Open the Income &amp; Lifestyle Builder →</a></p><p><a href="/">Return home</a></p><noscript><p>Representative pages require JavaScript. Enable it to open a personal rep link.</p></noscript></main></body></html>

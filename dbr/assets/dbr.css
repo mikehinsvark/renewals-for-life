@@ -1,0 +1,12 @@
+/* Show the DREAMS logo in its original supplied artwork without stretching it. */
+.site-header .header-inner{height:96px}
+.site-header .brand-logo-only{display:block;width:230px;height:90px;overflow:hidden;flex:0 0 230px}
+.site-header .brand-logo-image{display:block;width:auto;max-width:none;height:90px;max-height:none;object-fit:initial}
+.mm-intro{font-size:clamp(13px,1.15vw,17px);letter-spacing:.15em}
+.rep-badge{display:inline-flex;gap:5px;align-items:center;margin-left:12px;padding:4px 8px;border:1px solid #315572;border-radius:5px;color:#bad2df;font-size:10px;letter-spacing:.08em;vertical-align:middle}
+.income-card-head h3{line-height:1.25}
+.tools{flex-wrap:wrap}
+.ecosystem-links{flex-wrap:wrap}
+@media(max-width:920px){.site-header .header-inner{height:78px}.site-header .brand-logo-only{width:179px;height:70px;flex-basis:179px}.site-header .brand-logo-image{width:auto;height:70px;max-height:none}.rep-badge{margin-left:6px}}
+@media(max-width:440px){.rep-badge{display:table;margin:8px 0 0}.tools{gap:7px}.tools button{font-size:11px;padding-inline:9px}}
+@media print{.rep-badge{color:#222;border-color:#888}}

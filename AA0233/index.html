@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#041020">
+  <meta name="description" content="An interactive financial freedom dashboard for DREAMS Business Resources. Track recurring and one-time income, compare annual cash flow and 5% income-equivalent capital, and visualize income continuity.">
+  <title>DREAMS Business Resources | Recurring Income Asset Builder</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="/dbr/assets/site/favicon-32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/dbr/assets/site/apple-touch-icon.png">
+  
+  <link rel="stylesheet" href="/dbr/assets/base.css">
+  <link rel="stylesheet" href="/dbr/assets/hero-v2/hero.css">
+  <script src="/dbr/assets/hero-v2/carousel.js" defer></script>
+  <link rel="stylesheet" href="/dbr/assets/refinements.css">
+  <link rel="canonical" href="https://renewalsforlifestyle.com/AA0233/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="DREAMS Business Resources — Build the Income. Live the Dream.">
+  <meta property="og:description" content="Explore your recurring income, compare cash flow, and design the lifestyle that matters to you. A private, browser-based planning tool.">
+  <meta property="og:url" content="https://renewalsforlifestyle.com/AA0233/">
+  <meta property="og:image" content="https://renewalsforlifestyle.com/dbr/assets/hero-v2/santorini.webp">
+  <meta property="og:image:alt" content="A sea-view terrace in Santorini, Greece">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="stylesheet" href="/dbr/assets/dbr.css">
+  <script src="/dbr/assets/referral.js" defer></script>
+  <script src="/dbr/assets/site-ui.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <div class="topline" aria-hidden="true"></div>
+  <header class="site-header" id="home">
+    <div class="container header-inner">
+      <a class="brand brand-logo-only" href="#home" aria-label="DREAMS Business Resources home">
+        <img decoding="async" class="brand-logo-image" width="1008" height="132" src="/dbr/assets/site/dreams-brand-logos.png" alt="DREAMS Business Resources logo">
+      </a>
+      <nav class="desktop-nav" aria-label="Main navigation">
+        <a href="#calculator">Calculator</a><a href="#compare">Compare</a><a href="#lifestyle">Lifestyle</a><a href="#ecosystem">DREAMS Ecosystem</a>
+      </nav>
+      <a href="#calculator" class="nav-cta">Start Building <span aria-hidden="true">↗</span></a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Open navigation menu" aria-controls="mobileNav" aria-expanded="false">☰</button>
+    </div>
+    <nav class="mobile-nav" id="mobileNav" aria-label="Mobile navigation" hidden>
+      <a href="#calculator">Calculator</a><a href="#compare">Compare</a><a href="#lifestyle">Lifestyle</a><a href="#ecosystem">DREAMS Ecosystem</a>
+    </nav>
+  </header>
+
+  <main id="main-content" tabindex="-1">
+    <section class="mm-hero" id="dream-carousel" aria-roledescription="carousel" aria-label="Dream destinations" tabindex="0">
+      <div class="mm-hero-photo" aria-hidden="true">
+        <div class="mm-slide mm-active" data-destination="santorini"><img width="1440" height="1050" src="/dbr/assets/hero-v2/santorini.webp" alt="" fetchpriority="high" decoding="async" /></div>
+        <div class="mm-slide" data-destination="tahoe"><img width="800" height="532" src="/dbr/assets/hero-v2/tahoe.webp" alt="" decoding="async" /></div>
+        <div class="mm-slide" data-destination="amalfi"><img width="666" height="536" src="/dbr/assets/hero-v2/amalfi.webp" alt="" decoding="async" /></div>
+        <div class="mm-slide" data-destination="river"><img width="1024" height="768" src="/dbr/assets/hero-v2/river.webp" alt="" decoding="async" /></div>
+        <div class="mm-slide" data-destination="positano"><img width="1164" height="1437" src="/dbr/assets/hero-v2/positano.webp" alt="" decoding="async" /></div>
+        <div class="mm-slide" data-destination="alpine"><img width="564" height="564" src="/dbr/assets/hero-v2/alpine.webp" alt="" decoding="async" /></div>
+      </div>
+      <div class="mm-hero-wash"></div><div class="mm-hero-grid"></div>
+      <div class="mm-scenic-kicker"><span>✦</span> YOUR FREEDOM. YOUR DESTINATION.</div>
+      <div class="mm-hero-content">
+        <div class="mm-eyebrow"><span class="mm-pulse"></span> THE FINANCIAL FREEDOM COMMAND CENTER</div>
+        <p class="mm-intro">DREAMS BUSINESS RESOURCES</p>
+        <h1 id="heroTitle"><span>BUILD THE INCOME.</span><span class="mm-glow">LIVE THE DREAM.</span></h1>
+        <p class="mm-subhead">Turn recurring income into more freedom, more choices, and a life designed entirely on your terms.</p>
+        <div class="mm-hero-buttons"><a class="mm-button-main" href="#calculator"><span aria-hidden="true">▦</span> Explore Your Income <span aria-hidden="true">↗</span></a><a class="mm-button-secondary" href="#compare"><span class="mm-play" aria-hidden="true">▶</span> See the Difference</a></div>
+        <div class="mm-microcopy"><span class="mm-pulse" style="width:7px;height:7px"></span><span>Your numbers stay in this browser</span><span class="mm-line"></span><span>Editable &amp; instantly calculated</span></div>
+      </div>
+      <div class="mm-scenic-panel">
+      <div class="mm-destination"><small id="mm-destination-eyebrow">DREAM DESTINATION 01</small><h2 id="mm-destination-name">Santorini, Greece</h2><p id="mm-destination-message">Wake up somewhere extraordinary.</p></div>
+      <div class="mm-slide-counter"><span id="mm-counter">01 / 06</span><span class="mm-progress-track" aria-hidden="true"><span class="mm-progress-fill" id="mm-progress"></span></span><button class="mm-pause-toggle" type="button" id="mm-pause" aria-pressed="false" aria-label="Pause automatic slideshow" title="Pause slideshow">❚❚</button></div>
+      <div class="mm-carousel-controls" role="group" aria-label="Choose a dream destination">
+        <button class="mm-arrow" id="mm-prev" type="button" aria-label="Previous destination">‹</button>
+        <div class="mm-thumbs" id="mm-thumbs">
+          <button class="mm-thumb mm-active" data-index="0" type="button" aria-label="Show Santorini, Greece" aria-current="true"><img decoding="async" width="1440" height="1050" src="/dbr/assets/hero-v2/santorini.webp" alt="" /></button>
+          <button class="mm-thumb" data-index="1" type="button" aria-label="Show Lake Tahoe" aria-current="false"><img decoding="async" width="800" height="532" src="/dbr/assets/hero-v2/tahoe.webp" alt="" /></button>
+          <button class="mm-thumb" data-index="2" type="button" aria-label="Show Amalfi Coast" aria-current="false"><img decoding="async" width="666" height="536" src="/dbr/assets/hero-v2/amalfi.webp" alt="" /></button>
+          <button class="mm-thumb" data-index="3" type="button" aria-label="Show River Retreat" aria-current="false"><img decoding="async" width="1024" height="768" src="/dbr/assets/hero-v2/river.webp" alt="" /></button>
+          <button class="mm-thumb" data-index="4" type="button" aria-label="Show Positano, Italy" aria-current="false"><img decoding="async" width="1164" height="1437" src="/dbr/assets/hero-v2/positano.webp" alt="" /></button>
+          <button class="mm-thumb" data-index="5" type="button" aria-label="Show Alpine Escape" aria-current="false"><img decoding="async" width="564" height="564" src="/dbr/assets/hero-v2/alpine.webp" alt="" /></button>
+        </div>
+        <button class="mm-arrow" id="mm-next" type="button" aria-label="Next destination">›</button>
+      </div>
+      </div>
+      <p class="mm-sr-only" id="mm-announcement" aria-live="polite" aria-atomic="true"></p>
+    </section>
+
+    <section class="container" id="calculator" aria-labelledby="calcTitle">
+      <div class="section-topline"><span></span><p>THE NUMBERS BEHIND YOUR FREEDOM</p><span></span></div>
+      <div class="calculator-shell">
+        <div class="section-head dashboard-head">
+          <div><div class="overline">◈ LIVE INCOME DASHBOARD <span class="rep-badge">REP <span data-rep-code>AA0233</span></span></div><h2 id="calcTitle">Your Income. <span class="text-lime">Your Future.</span></h2><p>Enter your monthly income below. Your totals update instantly and stay in this browser.</p></div>
+          <div class="tools"><button type="button" id="copyPageLink" title="Copy this representative’s page link">↗ Copy page link</button><button type="button" id="saveBackup" title="Download a backup of your numbers">↓ Save backup</button><button type="button" id="importBackup" title="Import a saved backup">↑ Import</button><input id="backupFile" type="file" accept="application/json,.json" hidden><button type="button" id="resetBtn" title="Reset all amounts to the original defaults">↺ Reset</button></div>
+        </div>
+        <p class="storage-note" id="storageStatus" role="status">Your entries are saved in this browser.</p>
+        <div class="hero-financials">
+          <div class="capital-panel">
+            <div class="metric-label"><span class="round-icon gold-icon">♛</span> THE ANNUITY INCOME EQUIVALENT</div>
+            <div class="capital-value" id="capitalValue">$0</div>
+            <div class="capital-subtitle">Hypothetical principal needed to produce the same annual recurring cash flow</div>
+            <div class="rate-bar"><label for="rateRange">Illustrative income rate</label><input id="rateRange" type="range" min="0.5" max="20" step="0.5" value="5"><div class="rate-input-wrap"><input id="rateValue" type="number" min="0.5" max="20" step="0.5" value="5" aria-label="Illustrative annual income rate">%</div></div>
+            <div class="capital-footnote">Income equivalent, not an investment balance or transferable asset value.</div>
+          </div>
+          <div class="metric-stack">
+            <div class="metric-panel green-panel"><div class="metric-top"><span class="round-icon green-icon">↻</span> RECURRING / MONTH</div><div class="metric-value" id="recMonthly">$0</div><span>Ongoing income as entered</span></div>
+            <div class="metric-panel blue-panel"><div class="metric-top"><span class="round-icon blue-icon">▤</span> RECURRING / YEAR</div><div class="metric-value" id="recAnnual">$0</div><span>12 × current monthly run rate</span></div>
+          </div>
+          <div class="metric-stack">
+            <div class="metric-panel red-panel"><div class="metric-top"><span class="round-icon red-icon">↗</span> ONE-TIME / THIS MONTH</div><div class="metric-value" id="linMonthly">$0</div><span>Non-renewal commissions entered</span></div>
+            <div class="metric-panel violet-panel"><div class="metric-top"><span class="round-icon violet-icon">◇</span> COMBINED / THIS MONTH</div><div class="metric-value" id="combinedMonthly">$0</div><span>Recurring + entered one-time income</span></div>
+          </div>
+        </div>
+        <div class="finance-divider"><span>✦</span> ONE RELATIONSHIP. MULTIPLE INCOME STREAMS. <span>✦</span></div>
+        <div class="income-grid">
+          <section class="income-card recurring-card" aria-labelledby="recTitle"><div class="income-card-head"><div><div class="income-small">YOUR RECURRING ENGINE</div><h3 id="recTitle"><span class="currency-badge green">$</span> Recurring Income</h3><p>Monthly income that can continue without a new sale, subject to each source's rules.</p></div><div class="summary-chip green-chip" id="recChip">$0 / mo</div></div><div class="income-colheaders"><span>INCOME STREAM</span><span>MONTHLY AMOUNT · SLIDERS $0–$50K</span></div><div id="recurringRows" class="income-rows"></div><button type="button" class="add-stream" data-kind="recurring">＋ Add another recurring stream</button><div class="income-card-footer"><span>ANNUAL RECURRING INCOME</span><strong id="recFooter">$0</strong></div></section>
+          <section class="income-card linear-card" aria-labelledby="linTitle"><div class="income-card-head"><div><div class="income-small red-text">YOUR TRANSACTIONAL ENGINE</div><h3 id="linTitle"><span class="currency-badge red">$</span> One-Time Linear Income</h3><p>Commissions and receipts from new transactions, not automatic renewals.</p></div><div class="summary-chip red-chip" id="linChip">$0 / mo</div></div><div class="income-colheaders"><span>INCOME SOURCE</span><span>THIS MONTH · SLIDERS $0–$50K</span></div><div id="linearRows" class="income-rows"></div><button type="button" class="add-stream red-add" data-kind="linear">＋ Add another one-time stream</button><div class="income-card-footer linear-footer"><span>ONE-TIME INCOME ENTERED</span><strong id="linFooter">$0</strong></div></section>
+        </div>
+        <div class="dashboard-bottom"><div class="mini-banner"><span class="mini-icon">✦</span><div><strong>Income you can plan around.</strong><span>Visibility into your recurring and transactional cash flow.</span></div></div><div class="button-row"><button type="button" class="btn btn-outline compact" id="exportCsv">↓ Export CSV</button><button type="button" class="btn btn-outline compact" id="printBtn">▤ Print / Save PDF</button></div></div>
+      </div>
+    </section>
+
+    <div class="container next-step"><span>Your numbers are the starting point.</span><a href="#compare">Next: test your income resilience <span aria-hidden="true">↓</span></a></div>
+
+    <section class="container comparison-section" id="compare" aria-labelledby="compareTitle">
+      <div class="section-topline"><span></span><p>THE REAL DIFFERENCE</p><span></span></div>
+      <div class="compare-head"><div><div class="overline">THE STOP-SELLING TEST</div><h2 id="compareTitle">What happens when <em>new sales stop?</em></h2><p>Model how existing recurring cash flow could continue while one-time income depends on new transactions.</p></div><div class="comparison-switch"><label class="switch"><input type="checkbox" id="stopToggle" checked><span class="track"></span><span class="switch-copy">Stop new sales</span></label></div></div>
+      <div class="compare-grid"><div class="chart-card"><div class="chart-top"><div><div class="overline">5-YEAR CASH FLOW ILLUSTRATION</div><h3>Monthly cash flow illustration</h3></div><div class="legend"><span><i class="dot green"></i> Existing recurring</span><span><i class="dot red"></i> New one-time sales</span></div></div><p class="chart-empty" id="chartEmpty">Start with one income amount to bring this comparison to life. <a href="#calculator">Enter your numbers ↗</a></p><div class="chart-canvas" id="chart" role="img" aria-label="Five-year cash flow comparison chart"></div><div class="chart-controls"><label for="retention">Annual recurring income retention</label><div class="retention-group"><input id="retention" type="range" min="50" max="100" step="1" value="100"><output id="retentionOutput" for="retention">100%</output></div></div><details class="cashflow-details"><summary>View the year-by-year numbers</summary><div class="table-scroll"><table class="cashflow-table"><caption class="mm-sr-only">Illustrative monthly cash flow by year</caption><thead><tr><th scope="col">Year</th><th scope="col">Recurring / month</th><th scope="col">One-time / month</th></tr></thead><tbody id="cashflowTable"></tbody></table></div></details><div class="chart-note">Illustration only. Retention applies to recurring income each year; no future new groups are assumed. When new sales are on, one-time income assumes the entered monthly level is repeated through new transactions.</div></div>
+      <div class="insights-column"><div class="insight-card green-insight"><span class="insight-icon">↻</span><div class="overline">IF YOU STOP SELLING TODAY</div><h3><span id="stopRec">$0</span> <small>/month</small></h3><p>Current recurring income before potential attrition or other changes.</p></div><div class="insight-card red-insight"><span class="insight-icon">⊘</span><div class="overline">NEW ONE-TIME SALES INCOME</div><h3><span id="stopLinear">$0</span> <small>/month</small></h3><p id="stopLinearText">No new transactions modeled after stopping sales.</p></div><div class="insight-card gold-insight"><span class="insight-icon">♛</span><div class="overline">ANNUITY INCOME EQUIVALENT</div><h3 id="stopCapital">$0</h3><p>A comparison of annual recurring cash flow with hypothetical yield—not the book's sale price.</p></div></div></div>
+    </section>
+
+    <section class="container feature-section" aria-labelledby="featureTitle"><div class="section-topline"><span></span><p>BUILD YOUR FUTURE ON PURPOSE</p><span></span></div><h2 id="featureTitle" class="center-title">THE DREAMS <span class="text-lime">MINDSET</span></h2><div class="feature-grid"><article class="feature-card"><img width="550" height="387" class="feature-photo" src="/dbr/assets/site/mindset-continuity.webp" alt="" loading="lazy" decoding="async"><span class="feature-symbol">✦</span><h3>WHEN WORK STOPS, WHAT KEEPS PAYING?</h3><p>Understand the difference between income from past relationships and income requiring new transactions.</p></article><article class="feature-card"><img width="700" height="500" class="feature-photo" src="/dbr/assets/site/mindset-streams.webp" alt="" loading="lazy" decoding="async"><span class="feature-symbol">∞</span><h3>ONE RELATIONSHIP. MULTIPLE STREAMS.</h3><p>Build a diverse income picture across benefits, technology, financial services and other sources.</p></article><article class="feature-card"><img width="589" height="413" class="feature-photo" src="/dbr/assets/site/mindset-lifestyle.webp" alt="" loading="lazy" decoding="async"><span class="feature-symbol">↗</span><h3>BUILD THE LIFESTYLE, NOT JUST THE SALES.</h3><p>Track progress toward the freedom, flexibility and choices that matter most to you.</p></article></div></section>
+
+    <section class="lifestyle-section" id="lifestyle" aria-labelledby="lifestyleTitle"><div class="container"><div class="section-topline"><span></span><p>THE WHY BEHIND THE NUMBERS</p><span></span></div><h2 id="lifestyleTitle" class="center-title">LIVE THE LIFESTYLE <span class="text-lime">YOU'RE BUILDING.</span></h2><p class="center-subtitle">More freedom. More experiences. More of the moments that matter.</p><div class="lifestyle-grid"><figure class="life-tile tile-wide"><img decoding="async" width="1600" height="860" loading="lazy" src="/dbr/assets/site/lifestyle-mountain-office.webp" alt="Mountain office with panoramic Alpine views"><figcaption>Freedom to work from anywhere</figcaption></figure><figure class="life-tile"><img decoding="async" width="708" height="400" loading="lazy" src="/dbr/assets/site/lifestyle-slow-mornings.webp" alt="Morning coffee at sunrise"><figcaption>Slow mornings</figcaption></figure><figure class="life-tile"><img decoding="async" width="550" height="387" loading="lazy" src="/dbr/assets/site/lifestyle-experiences.webp" alt="Oceanfront dining with glasses raised"><figcaption>Unforgettable experiences</figcaption></figure><figure class="life-tile"><img decoding="async" width="589" height="408" loading="lazy" src="/dbr/assets/site/lifestyle-together.webp" alt="Couple enjoying a snowy mountain getaway"><figcaption>Time together</figcaption></figure><figure class="life-tile"><img decoding="async" width="589" height="413" loading="lazy" src="/dbr/assets/site/lifestyle-horizons.webp" alt="Couple viewing a pristine mountain lake"><figcaption>New horizons</figcaption></figure></div></div></section>
+
+    <section class="container ecosystem-section" id="ecosystem" aria-labelledby="ecoTitle"><div class="section-topline"><span></span><p>THE DREAMS BUSINESS RESOURCES VISION</p><span></span></div><h2 id="ecoTitle" class="center-title">ONE RELATIONSHIP. <span class="text-lime">MORE POSSIBILITIES.</span></h2><p class="center-subtitle">The DREAMS ecosystem connects ideas, solutions and new income opportunities.</p><div class="ecosystem-grid"><div class="eco-main"><a class="infographic-link" href="/dbr/assets/site/dreams-ecosystem.webp" data-image-viewer aria-label="View DREAMS Business Resources ecosystem and partner solutions infographic full size"><img width="1250" height="697" loading="lazy" decoding="async" src="/dbr/assets/site/dreams-ecosystem.webp" alt="DREAMS Business Resources ecosystem and partner solutions infographic"><span class="view-image-label">View full size <span aria-hidden="true">↗</span></span></a></div><div class="eco-cards"><a class="infographic-link" href="/dbr/assets/site/dreams-vision.webp" data-image-viewer aria-label="View DREAMS 2026 vision infographic full size"><img width="1250" height="703" loading="lazy" decoding="async" src="/dbr/assets/site/dreams-vision.webp" alt="DREAMS 2026 vision infographic"><span class="view-image-label">View full size <span aria-hidden="true">↗</span></span></a><a class="infographic-link" href="/dbr/assets/site/dreams-income-model.webp" data-image-viewer aria-label="View DREAMS recurring versus traditional one-time sales model infographic full size"><img width="1250" height="704" loading="lazy" decoding="async" src="/dbr/assets/site/dreams-income-model.webp" alt="DREAMS recurring versus traditional one-time sales model infographic"><span class="view-image-label">View full size <span aria-hidden="true">↗</span></span></a></div></div><div class="ecosystem-links"><a href="https://dreamsfaststart.com/dbrproducts?refid=AA0233#income-lifestyle" data-rep-link target="_blank" rel="noopener noreferrer">Explore the DREAMS Products Portfolio ↗</a><a href="https://renewalsforlife.info/?refid=AA0233" data-rep-link target="_blank" rel="noopener noreferrer">Explore Renewals for Life ↗</a><a href="https://renewalsforlifestyle.com/" target="_blank" rel="noopener noreferrer">Explore Renewals for Lifestyle ↗</a><a href="https://aigeniedatabase.com/gold/#home" target="_blank" rel="noopener noreferrer">Explore DREAMS Gold ↗</a></div></section>
+  </main>
+  <footer class="site-footer"><div class="container footer-grid"><div class="footer-brand"><span class="footer-brandmark">↗</span><div><strong>DREAMS <em>BUSINESS</em> RESOURCES</strong><p>Your Income &amp; Lifestyle Builder</p></div></div><div class="footer-center">RECURRING INCOME. <span>LIFESTYLE FREEDOM.</span> BUILT WITH PURPOSE.</div><a href="#home" class="back-top">Back to top ↑</a></div><div class="container legal-notes">Personal illustrative planning tool. It is not tax, legal or investment advice. Income streams may end or change; some are not transferable assets. The income-equivalent figure uses a simplified annual-income ÷ hypothetical-yield calculation and does not represent a guaranteed return or actual investment/asset value. This public calculator starts at zero. Your entries are saved only in this browser. Download a backup to keep a separate copy.</div></footer>
+  <dialog class="image-viewer" id="imageViewer" aria-label="Infographic viewer"><div class="viewer-toolbar"><p id="viewerCaption"></p><div class="viewer-actions"><button type="button" id="zoomViewer" aria-pressed="false">Zoom in</button><button type="button" id="closeViewer" aria-label="Close full-size image">Close ×</button></div></div><div class="viewer-image-wrap"><img id="viewerImage" alt=""></div></dialog>
+  <div class="toast" id="toast" aria-live="polite" role="status"></div>
+  <script src="/dbr/assets/calculator.js" defer></script>
+</body>
+</html>
